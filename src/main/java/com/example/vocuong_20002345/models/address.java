@@ -20,18 +20,29 @@ public class address {
     private long id;
     @Column(name = "city" , length = 150)
     private String city;
-    @Column(name = "country")
-    private CountryCode countryCode;
-    @Column(name = "zip_code",length = 150 , nullable = false)
+    @Column(name = "number" , length = 150)
+    private String number;
+    @Column(name = "zip_code",length = 150)
     private String zipCode;
     @Column(name = "Street" ,length = 150)
     private String street;
-    @Column(name = "number" , length = 150 , nullable = false)
-    private String number;
+    @Column(name = "country")
+    private CountryCode countryCode;
 
 
-    @OneToOne(mappedBy = "address")
-    private Candidate candidate;
-    @OneToOne(mappedBy = "address")
-    private company company;
+
+
+//    @OneToOne(mappedBy = "address")
+//    private Candidate candidate;
+//    @OneToOne(mappedBy = "address")
+//    private company company;
+
+    public address(long id, String city, String number, String zipCode, CountryCode countryCode) {
+        this.id = id;
+        this.city = city;
+        this.number = number;
+        this.zipCode = zipCode;
+        this.street = street;
+        this.countryCode = countryCode;
+    }
 }
